@@ -10,7 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
 
+import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 
 
 public class IMCActivity extends AppCompatActivity {
@@ -28,40 +30,48 @@ public class IMCActivity extends AppCompatActivity {
         idalt = (EditText) findViewById(R.id.idalt);
         btcalc = (Button) findViewById(R.id.btcalc);
 
+        
+
 
         btcalc.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
+
                 double peso = Double.parseDouble(
                         idquilo.getText().toString());
+
                 double altura = Double.parseDouble(
                         idalt.getText().toString());
+
                 double resultado = peso / (altura*altura);
                 int i = (int) resultado;
                 AlertDialog.Builder dialogo = new
                         AlertDialog.Builder(IMCActivity.this);
                 dialogo.setTitle("Resultado Do IMC");
-                if(resultado <= 18.5){
-                    dialogo.setMessage("A Seu IMC É " + i + "\n Você Está Abaixo Do Peso Normal");
+
+                if(resultado < 18.5){
+                    dialogo.setMessage("A Seu IMC É " + i + ".\n Você Está Abaixo Do Peso Normal.");
                     dialogo.setNeutralButton("OK", null);
                     dialogo.show();
                 }
 
-                if(resultado > 18.5 && resultado <= 25){
-                    dialogo.setMessage("A Seu IMC É " + i + "\n Você Está Com O Peso Normal");
+                else if(resultado >= 18.5 && resultado <= 25){
+                    dialogo.setMessage("A Seu IMC É " + i + ".\n Você Está Com O Peso Normal.");
                     dialogo.setNeutralButton("OK", null);
                     dialogo.show();
                 }
 
-                if(resultado > 25 && resultado <= 30){
-                    dialogo.setMessage("A Seu IMC É " + i + "\n Você Está Acima Do Peso Normal");
+                else if(resultado > 25 && resultado <= 30){
+                    dialogo.setMessage("A Seu IMC É " + i + ".\n Você Está Acima do peso normal.");
                     dialogo.setNeutralButton("OK", null);
                     dialogo.show();
                 }
 
 
-                if(resultado > 30){
-                    dialogo.setMessage("A Seu IMC É " + i + "\n Você Com Obesidade Morbida");
+                else{
+                    dialogo.setMessage("A Seu IMC É " + i + ".\n Você Está Com Obesidade Morbida.");
                     dialogo.setNeutralButton("OK", null);
                     dialogo.show();
                 }

@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DIGITE SUA ALTURA EM METROS"
+        android:text="DIGITE SUA ALTURA EM METROS - (EX - 1.70)"
         android:id="@+id/textView3"
         android:layout_below="@+id/idquilo"
         android:layout_alignParentLeft="true"
@@ -62,4 +62,12 @@
         android:layout_below="@+id/idalt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Segundo a O.M.S., O IMC Normal Está Entre 18.5 e 25."
+        android:id="@+id/textView4"
+        android:layout_below="@+id/btcalc"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
